@@ -10,11 +10,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-kafka .
+# docker build -f src/main/docker/Dockerfile.native-micro -t quarkus/quarkus-simple-blog .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/quarkus-kafka
+# docker run -i --rm -p 8080:8080 quarkus/quarkus-simple-blog
 #
 ###
 FROM quay.io/quarkus/quarkus-micro-image:2.0
