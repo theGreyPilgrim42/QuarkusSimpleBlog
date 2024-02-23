@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -83,6 +85,7 @@ public class Blog {
         return isValid;
     }
 
+    @JsonIgnore
     public void setValid(boolean isValid) {
         this.isValid = isValid;
     }
