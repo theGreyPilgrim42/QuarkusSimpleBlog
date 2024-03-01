@@ -1,3 +1,16 @@
+# How to run the services
+To run the production services, execute the following command:
+```bash
+docker-compose --file docker-compose.prod.yaml up -d
+```
+
+The Swagger UI of the Backend Service is available under http://localhost:9090/q/swagger-ui
+
+To verify the functionality of the services create a Blog by using the POST endpoint.
+The Blogs can be retrieved using the GET endpoint.
+If the Blog content contains one of the following words `bad`, `invalid` or `sucks` the Blog's valid property will be set to `false`
+otherwise it will be set to `true`.
+
 # quarkus-simple-blog
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
