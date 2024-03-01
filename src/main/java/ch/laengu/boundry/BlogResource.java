@@ -2,9 +2,16 @@ package ch.laengu.boundry;
 
 import java.util.List;
 
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
+import org.eclipse.microprofile.reactive.messaging.Incoming;
+
 import ch.laengu.control.BlogService;
 import ch.laengu.entity.Blog;
+import ch.laengu.entity.TextMessage;
+import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -19,6 +26,9 @@ public class BlogResource {
     @Inject
     BlogService blogService;
 
+    @Channel("new-blog")
+    Emitter<TextMessage> emitter;
+
     @GET
     public List<Blog> getBlogs() {
         return blogService.getBlogs();
@@ -32,7 +42,8 @@ public class BlogResource {
 
     @POST
     public void addBlog(@Valid Blog blog) {
-        this.blogService.addBlog(blog);
+        Blog newBlog = this.blogService.addBlog(blog);
+        emitter.send(new TextMessage(newBlog.getId(), newBlog.getContent()));
     }
 
     @DELETE
@@ -41,5 +52,24 @@ public class BlogResource {
             return Response.status(Status.NOT_FOUND).build();
         }
         return Response.status(Status.OK).build();
+    }
+
+    @Incoming("validated-text")
+    @Transactional
+    public void sink(TextMessage textMessage) {
+        Log.info("Received on topic validated-text: " + textMessage.toString());
+        Long id = textMessage.getId();
+        if (id == null) {
+            Log.warn("Text Message ID is null");
+            return;
+        }
+        Blog blog = this.blogService.getBlog(id);
+
+        // Guard clause
+        if (blog == null) {
+            return;
+        }
+
+        blog.setValid(textMessage.isValid());
     }
 }
