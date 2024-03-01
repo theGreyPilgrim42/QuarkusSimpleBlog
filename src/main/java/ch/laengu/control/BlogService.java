@@ -26,9 +26,10 @@ public class BlogService {
     }
 
     @Transactional
-    public void addBlog(Blog blog) {
+    public Blog addBlog(Blog blog) {
         Log.info("Adding blog " + blog.getTitle());
         blogRepository.persist(blog);
+        return blog;
     }
 
     @Transactional
