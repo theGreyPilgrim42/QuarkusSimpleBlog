@@ -12,14 +12,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
-import jakarta.persistence.SequenceGenerator;
 
 @Entity
 @Schema(name = "Blog", description = "POJO that represents a blog entry.")
 public class Blog {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BLOG_SEQ")
-    @SequenceGenerator(sequenceName = "seq_blog", allocationSize = 1, initialValue = 0, name = "BLOG_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
     private Long id; // Use Long Wrapper for null
 
