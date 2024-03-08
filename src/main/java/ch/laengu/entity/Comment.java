@@ -1,48 +1,35 @@
 package ch.laengu.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
 @Entity
-@Schema(name = "Blog", description = "POJO that represents a blog entry.")
-public class Blog {
+@Schema(name = "Comment", description = "POJO that represents a blog entry.")
+public class Comment {
     // Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Schema(readOnly = true)
-    private Long id; // Use Long Wrapper for null
+    private Long id;
 
-    @Schema(required = true, example = "New Blog")
-    private String title;
-
-    @Schema(required = true, example = "This is my first blog post.")
-    private String content;
+    @Schema(required = true)
+    private String text;
 
     @Schema(readOnly = true)
     private boolean isValid;
 
-    @OneToMany(cascade = CascadeType.ALL) // TODO: Check if this is suitable
-    @JoinColumn(name = "blog_id")
-    private List<Comment> comments = new ArrayList<>();
-
     @Schema(required = true)
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Author author;
 
     @Schema(readOnly = true)
@@ -52,13 +39,12 @@ public class Blog {
     private LocalDateTime updatedAt;
 
     // Constructors
-    public Blog() {
+    public Comment() {
         this.isValid = false;
     }
 
-    public Blog(String title, String content) {
-        this.title = title;
-        this.content = content;
+    public Comment(String text) {
+        this.text = text;
         this.isValid = false;
     }
 
@@ -74,42 +60,29 @@ public class Blog {
         updatedAt = LocalDateTime.now();
     }
 
-    // Getters and Setters
+    // Getters and setters
     public Long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getText() {
+        return text;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
+    public void setText(String text) {
+        this.text = text;
     }
 
     public boolean isValid() {
         return isValid;
     }
 
-    @JsonIgnore
     public void setValid(boolean isValid) {
         this.isValid = isValid;
-    }
-
-    public List<Comment> getComments() {
-        return this.comments;
-    }
-
-    public void addComment(Comment comment) {
-        this.comments.add(comment);
     }
 
     public Author getAuthor() {
@@ -131,7 +104,7 @@ public class Blog {
     // Methods
     @Override
     public String toString() {
-        return "Blog [id=" + id + ", title=" + title + ", content=" + content + ", isValid=" + isValid + ", createdAt="
-                + createdAt + ", updatedAt=" + updatedAt + "]";
+        return "Comment [id=" + id + ", text=" + text + ", isValid=" + isValid + ", createdAt=" + createdAt
+                + ", updatedAt=" + updatedAt + "]";
     }
 }
