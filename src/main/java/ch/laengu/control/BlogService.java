@@ -33,7 +33,7 @@ public class BlogService {
     }
 
     @Transactional
-    public boolean removeBlog(Long id) {
+    public boolean deleteBlog(Long id) {
         /**
          * Returns false if the Blog with the id could not be found
          */

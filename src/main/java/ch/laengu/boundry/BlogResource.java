@@ -47,8 +47,9 @@ public class BlogResource {
     }
 
     @DELETE
+    @Path("{id}")
     public Response deleteBlogById(Long id) {
-        if (!this.blogService.removeBlog(id)) {
+        if (!this.blogService.deleteBlog(id)) {
             return Response.status(Status.NOT_FOUND).build();
         }
         return Response.status(Status.OK).build();
