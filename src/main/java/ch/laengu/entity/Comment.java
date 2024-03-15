@@ -2,7 +2,6 @@ package ch.laengu.entity;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
@@ -17,7 +16,7 @@ public class Comment extends BaseEntity {
     private boolean isValid;
 
     @Schema(required = true)
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Author author;
 
     // Constructors

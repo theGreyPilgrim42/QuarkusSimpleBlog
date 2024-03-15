@@ -7,7 +7,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -26,12 +25,12 @@ public class Blog extends BaseEntity {
     @Schema(readOnly = true)
     private boolean isValid;
 
-    @OneToMany(cascade = CascadeType.ALL) // TODO: Check if this is suitable
+    @OneToMany
     @JoinColumn(name = "blog_id")
     private List<Comment> comments = new ArrayList<>();
 
     @Schema(required = true)
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     private Author author;
 
     // Constructors
