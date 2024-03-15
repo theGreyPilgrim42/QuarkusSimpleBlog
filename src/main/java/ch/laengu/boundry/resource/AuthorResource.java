@@ -2,6 +2,8 @@ package ch.laengu.boundry.resource;
 
 import java.util.List;
 
+import ch.laengu.boundry.dto.AuthorDTO;
+import ch.laengu.control.mapper.AuthorMapper;
 import ch.laengu.control.service.AuthorService;
 import ch.laengu.entity.Author;
 import jakarta.inject.Inject;
@@ -13,6 +15,9 @@ import jakarta.ws.rs.Path;
 @Path("/author")
 public class AuthorResource {
     
+    @Inject
+    AuthorMapper authorMapper;
+
     @Inject
     AuthorService authorService;
 
@@ -28,7 +33,8 @@ public class AuthorResource {
     }
 
     @POST
-    public List<Author> addAuthor(Author author) {
+    public List<Author> addAuthor(AuthorDTO authorDto) {
+        Author author = authorMapper.toValidAuthor(authorDto);
         authorService.addAuthor(author);
         return authorService.getAuthors();
     }
