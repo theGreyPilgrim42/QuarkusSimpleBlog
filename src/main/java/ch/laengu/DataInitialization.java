@@ -1,8 +1,8 @@
 package ch.laengu;
 
-import ch.laengu.control.AuthorRepository;
-import ch.laengu.control.BlogRepository;
-import ch.laengu.control.CommentRepository;
+import ch.laengu.control.repository.AuthorRepository;
+import ch.laengu.control.repository.BlogRepository;
+import ch.laengu.control.repository.CommentRepository;
 import ch.laengu.entity.Author;
 import ch.laengu.entity.Blog;
 import ch.laengu.entity.Comment;

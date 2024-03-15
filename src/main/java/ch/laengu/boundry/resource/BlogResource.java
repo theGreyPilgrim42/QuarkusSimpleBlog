@@ -1,4 +1,4 @@
-package ch.laengu.boundry;
+package ch.laengu.boundry.resource;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 
-import ch.laengu.control.BlogService;
+import ch.laengu.control.service.BlogService;
 import ch.laengu.entity.Blog;
 import ch.laengu.entity.TextMessage;
 import io.quarkus.logging.Log;

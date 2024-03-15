@@ -1,9 +1,9 @@
-package ch.laengu.boundry;
+package ch.laengu.boundry.resource;
 
 import java.util.List;
 
-import ch.laengu.control.BlogService;
-import ch.laengu.control.CommentService;
+import ch.laengu.control.service.BlogService;
+import ch.laengu.control.service.CommentService;
 import ch.laengu.entity.Blog;
 import ch.laengu.entity.Comment;
 import jakarta.inject.Inject;

@@ -1,8 +1,8 @@
-package ch.laengu.boundry;
+package ch.laengu.boundry.resource;
 
 import java.util.List;
 
-import ch.laengu.control.AuthorService;
+import ch.laengu.control.service.AuthorService;
 import ch.laengu.entity.Author;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;

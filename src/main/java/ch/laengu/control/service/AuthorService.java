@@ -1,7 +1,8 @@
-package ch.laengu.control;
+package ch.laengu.control.service;
 
 import java.util.List;
 
+import ch.laengu.control.repository.AuthorRepository;
 import ch.laengu.entity.Author;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;

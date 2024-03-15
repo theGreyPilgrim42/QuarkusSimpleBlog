@@ -1,4 +1,4 @@
-package ch.laengu.control;
+package ch.laengu.control.repository;
 
 import ch.laengu.entity.Comment;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;

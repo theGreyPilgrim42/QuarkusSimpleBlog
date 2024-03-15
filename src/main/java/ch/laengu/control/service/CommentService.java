@@ -1,7 +1,9 @@
-package ch.laengu.control;
+package ch.laengu.control.service;
 
 import java.util.List;
 
+import ch.laengu.control.repository.BlogRepository;
+import ch.laengu.control.repository.CommentRepository;
 import ch.laengu.entity.Blog;
 import ch.laengu.entity.Comment;
 import jakarta.enterprise.context.Dependent;
