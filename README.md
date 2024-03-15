@@ -1,3 +1,10 @@
+# Scope of work
+- [ ] Implement a load test to check how the system performs with 100+ concurrent users, which are sending HTTP requests to the backend.
+- [ ] Show how the test results need to be interpreted.
+- [ ] Show which changes need to be done to the system to improve the results of the load test (optional).
+- [ ] Add enpoints for managing (at least create, read and delete, if there's enough time add update) Blogs, Comments and Authors.
+- [ ] Refactor the Text-Validator service to be generic.
+
 # How to run the services
 To run the production services, execute the following command:
 ```bash

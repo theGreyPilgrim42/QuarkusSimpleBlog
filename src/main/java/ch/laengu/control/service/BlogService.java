@@ -1,7 +1,8 @@
-package ch.laengu.control;
+package ch.laengu.control.service;
 
 import java.util.List;
 
+import ch.laengu.control.repository.BlogRepository;
 import ch.laengu.entity.Blog;
 import io.quarkus.logging.Log;
 import jakarta.enterprise.context.Dependent;
@@ -33,7 +34,7 @@ public class BlogService {
     }
 
     @Transactional
-    public boolean removeBlog(Long id) {
+    public boolean deleteBlog(Long id) {
         /**
          * Returns false if the Blog with the id could not be found
          */
