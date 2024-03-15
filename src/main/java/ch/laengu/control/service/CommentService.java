@@ -8,6 +8,7 @@ import ch.laengu.entity.Blog;
 import ch.laengu.entity.Comment;
 import jakarta.enterprise.context.Dependent;
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
 
 @Dependent
 public class CommentService {
@@ -19,11 +20,16 @@ public class CommentService {
     @Inject
     CommentRepository commentRepository;
 
+    public Comment getCommentById(Long id) {
+        return commentRepository.findById(id);
+    }
+
     public List<Comment> getCommentsByBlog(Long id) {
         Blog blog = blogRepository.findById(id);
         return blog.getComments();
     }
 
+    @Transactional
     public void addCommentToBlog(Long id, Comment comment) {
         Blog blog = blogRepository.findById(id);
         commentRepository.persist(comment);
