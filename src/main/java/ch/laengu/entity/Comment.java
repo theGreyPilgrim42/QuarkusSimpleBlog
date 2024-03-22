@@ -2,6 +2,7 @@ package ch.laengu.entity;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Size;
@@ -12,6 +13,7 @@ public class Comment extends BaseEntity {
     // Attributes
     @Schema(required = true)
     @Size(max = 250)
+    @Column(length = 250)
     private String text;
 
     @Schema(readOnly = true)

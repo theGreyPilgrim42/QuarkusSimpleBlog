@@ -4,7 +4,10 @@
 - [ ] Show which changes need to be done to the system to improve the results of the load test (optional).
 - [x] Add enpoints for managing (at least create, read and delete, if there's enough time add update) Blogs, Comments and Authors.
 - [x] Refactor the Text-Validator service to be generic.
-- [ ] Refactor boundry to be reactive.
+- [x] Refactor boundry to be reactive.
+    - Making the boundry resources of the REST API reactive is out of scope.
+
+Take a look at JMeter [here](./JMeter.md).
 
 # How to run the services
 To run the production services, execute the following command:

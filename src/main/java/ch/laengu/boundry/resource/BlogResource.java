@@ -1,5 +1,6 @@
 package ch.laengu.boundry.resource;
 
+import java.net.URI;
 import java.util.List;
 
 import org.eclipse.microprofile.reactive.messaging.Channel;
@@ -21,7 +22,9 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.UriInfo;
 import jakarta.ws.rs.core.Response.Status;
 
 @Path("/blog")
@@ -52,13 +55,14 @@ public class BlogResource {
 
     @Path("{authorId}")
     @POST
-    public void addBlog(@PathParam("authorId") Long authorId, BlogDTO blogDto) {
+    public Response addBlog(@PathParam("authorId") Long authorId, BlogDTO blogDto, @Context UriInfo uriInfo) {
         Log.debug("Trying to add a new blog");
         Author author = authorService.getAuthor(authorId);
         Blog blog = blogMapper.toValidBlog(blogDto);
         blog.setAuthor(author);
         Blog newBlog = blogService.addBlog(blog);
         emitter.send(new Message(newBlog.getId(), newBlog.getContent()));
+        return Response.created(URI.create("/blog/" + Long.toString(newBlog.getId()))).build();
     }
 
     @DELETE
