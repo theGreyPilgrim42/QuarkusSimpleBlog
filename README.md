@@ -9,6 +9,18 @@
 
 Take a look at JMeter [here](./JMeter.md).
 
+# Load tests and reports
+The load tests are located:
+- for [100 users](./load-tests/test-plans/Quarkus-API-Load-Test-100-Users.jmx)
+- for [1000 users](./load-tests/test-plans/Quarkus-API-Load-Test-1000-Users.jmx)
+
+The reporst are located:
+- for [100 users](./load-tests/reports/Report-100-Users-Prod/index.html)
+- for [1000 users](./load-tests/reports/Report-1000-Users-Prod/index.html)
+
+Possible solutions:
+- Add paging so only a limited amount of blogs can be fetched per request.
+
 # How to run the services
 To run the production services, execute the following command:
 ```bash
