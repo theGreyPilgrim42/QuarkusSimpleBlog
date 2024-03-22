@@ -7,10 +7,12 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Schema(name = "Blog", description = "POJO that represents a blog entry.")
@@ -20,6 +22,8 @@ public class Blog extends BaseEntity {
     private String title;
 
     @Schema(required = true, example = "This is my first blog post.")
+    @Size(max = 11_475) // Based on 2250 words with an average of 5.1 letters per word
+    @Column(length = 11_475)
     private String content;
 
     @Schema(readOnly = true)
