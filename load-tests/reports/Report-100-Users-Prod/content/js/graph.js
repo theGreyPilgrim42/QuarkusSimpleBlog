@@ -257,7 +257,7 @@ function refreshSyntheticResponseTimeDistribution() {
 };
 
 var activeThreadsOverTimeInfos = {
-        data: {"result": {"minY": 11.32333333333334, "minX": 1.71112326E12, "maxY": 11.32333333333334, "series": [{"data": [[1.71112326E12, 11.32333333333334]], "isOverall": false, "label": "Scenario with 100 users", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 60000, "maxX": 1.71112326E12, "title": "Active Threads Over Time"}},
+        data: {"result": {"minY": 10.078260869565218, "minX": 1.711123275E12, "maxY": 12.097297297297306, "series": [{"data": [[1.711123275E12, 12.097297297297306], [1.71112329E12, 10.078260869565218]], "isOverall": false, "label": "Scenario with 100 users", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 15000, "maxX": 1.71112329E12, "title": "Active Threads Over Time"}},
         getOptions: function() {
             return {
                 series: {
@@ -407,7 +407,7 @@ function refreshTimeVsThreads(){
 };
 
 var bytesThroughputOverTimeInfos = {
-        data : {"result": {"minY": 4770.0, "minX": 1.71112326E12, "maxY": 152457.85, "series": [{"data": [[1.71112326E12, 152457.85]], "isOverall": false, "label": "Bytes received per second", "isController": false}, {"data": [[1.71112326E12, 4770.0]], "isOverall": false, "label": "Bytes sent per second", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 60000, "maxX": 1.71112326E12, "title": "Bytes Throughput Over Time"}},
+        data : {"result": {"minY": 7401.333333333333, "minX": 1.711123275E12, "maxY": 366845.13333333336, "series": [{"data": [[1.711123275E12, 242986.26666666666], [1.71112329E12, 366845.13333333336]], "isOverall": false, "label": "Bytes received per second", "isController": false}, {"data": [[1.711123275E12, 11678.666666666666], [1.71112329E12, 7401.333333333333]], "isOverall": false, "label": "Bytes sent per second", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 15000, "maxX": 1.71112329E12, "title": "Bytes Throughput Over Time"}},
         getOptions : function(){
             return {
                 series: {
@@ -484,7 +484,7 @@ function refreshBytesThroughputOverTime(fixTimestamps) {
 }
 
 var responseTimesOverTimeInfos = {
-        data: {"result": {"minY": 4.46, "minX": 1.71112326E12, "maxY": 31.91999999999999, "series": [{"data": [[1.71112326E12, 5.76]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.71112326E12, 4.46]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.71112326E12, 11.939999999999996]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.71112326E12, 14.080000000000004]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.71112326E12, 31.91999999999999]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.71112326E12, 19.209999999999994]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 60000, "maxX": 1.71112326E12, "title": "Response Time Over Time"}},
+        data: {"result": {"minY": 3.375, "minX": 1.711123275E12, "maxY": 41.35714285714284, "series": [{"data": [[1.711123275E12, 7.1], [1.71112329E12, 3.7500000000000004]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.711123275E12, 5.183333333333334], [1.71112329E12, 3.375]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.711123275E12, 14.266666666666666], [1.71112329E12, 8.45]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.711123275E12, 17.250000000000007], [1.71112329E12, 9.325000000000005]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.711123275E12, 41.35714285714284], [1.71112329E12, 9.900000000000002]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.711123275E12, 22.966666666666665], [1.71112329E12, 13.575]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 15000, "maxX": 1.71112329E12, "title": "Response Time Over Time"}},
         getOptions: function(){
             return {
                 series: {
@@ -565,7 +565,7 @@ function refreshResponseTimeOverTime(fixTimestamps) {
 };
 
 var latenciesOverTimeInfos = {
-        data: {"result": {"minY": 4.429999999999999, "minX": 1.71112326E12, "maxY": 29.710000000000015, "series": [{"data": [[1.71112326E12, 5.699999999999998]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.71112326E12, 4.429999999999999]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.71112326E12, 11.870000000000001]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.71112326E12, 14.080000000000004]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.71112326E12, 29.710000000000015]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.71112326E12, 19.049999999999994]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 60000, "maxX": 1.71112326E12, "title": "Latencies Over Time"}},
+        data: {"result": {"minY": 3.350000000000001, "minX": 1.711123275E12, "maxY": 39.44285714285716, "series": [{"data": [[1.711123275E12, 7.016666666666666], [1.71112329E12, 3.7249999999999996]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.711123275E12, 5.149999999999998], [1.71112329E12, 3.350000000000001]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.711123275E12, 14.200000000000001], [1.71112329E12, 8.374999999999998]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.711123275E12, 17.250000000000007], [1.71112329E12, 9.325000000000005]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.711123275E12, 39.44285714285716], [1.71112329E12, 7.0]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.711123275E12, 22.84999999999999], [1.71112329E12, 13.350000000000001]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 15000, "maxX": 1.71112329E12, "title": "Latencies Over Time"}},
         getOptions: function() {
             return {
                 series: {
@@ -646,7 +646,7 @@ function refreshLatenciesOverTime(fixTimestamps) {
 };
 
 var connectTimeOverTimeInfos = {
-        data: {"result": {"minY": 0.0, "minX": 1.71112326E12, "maxY": 1.490000000000001, "series": [{"data": [[1.71112326E12, 0.0]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.71112326E12, 0.0]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.71112326E12, 0.0]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.71112326E12, 0.0]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.71112326E12, 1.490000000000001]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.71112326E12, 0.0]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 60000, "maxX": 1.71112326E12, "title": "Connect Time Over Time"}},
+        data: {"result": {"minY": 0.0, "minX": 1.711123275E12, "maxY": 1.7857142857142863, "series": [{"data": [[1.711123275E12, 0.0], [1.71112329E12, 0.0]], "isOverall": false, "label": "GET-Comments", "isController": false}, {"data": [[1.711123275E12, 0.0], [1.71112329E12, 0.0]], "isOverall": false, "label": "GET-Authors", "isController": false}, {"data": [[1.711123275E12, 0.0], [1.71112329E12, 0.0]], "isOverall": false, "label": "POST-Author", "isController": false}, {"data": [[1.711123275E12, 0.0], [1.71112329E12, 0.0]], "isOverall": false, "label": "POST-Blog", "isController": false}, {"data": [[1.711123275E12, 1.7857142857142863], [1.71112329E12, 0.7999999999999999]], "isOverall": false, "label": "GET-Blogs", "isController": false}, {"data": [[1.711123275E12, 0.0], [1.71112329E12, 0.0]], "isOverall": false, "label": "POST-Comment", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 15000, "maxX": 1.71112329E12, "title": "Connect Time Over Time"}},
         getOptions: function() {
             return {
                 series: {
@@ -727,7 +727,7 @@ function refreshConnectTimeOverTime(fixTimestamps) {
 };
 
 var responseTimePercentilesOverTimeInfos = {
-        data: {"result": {"minY": 2.0, "minX": 1.71112326E12, "maxY": 504.0, "series": [{"data": [[1.71112326E12, 504.0]], "isOverall": false, "label": "Max", "isController": false}, {"data": [[1.71112326E12, 19.0]], "isOverall": false, "label": "90th percentile", "isController": false}, {"data": [[1.71112326E12, 110.57000000000039]], "isOverall": false, "label": "99th percentile", "isController": false}, {"data": [[1.71112326E12, 27.949999999999932]], "isOverall": false, "label": "95th percentile", "isController": false}, {"data": [[1.71112326E12, 2.0]], "isOverall": false, "label": "Min", "isController": false}, {"data": [[1.71112326E12, 10.0]], "isOverall": false, "label": "Median", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 60000, "maxX": 1.71112326E12, "title": "Response Time Percentiles Over Time (successful requests only)"}},
+        data: {"result": {"minY": 2.0, "minX": 1.711123275E12, "maxY": 504.0, "series": [{"data": [[1.711123275E12, 504.0], [1.71112329E12, 31.0]], "isOverall": false, "label": "Max", "isController": false}, {"data": [[1.711123275E12, 24.0], [1.71112329E12, 13.0]], "isOverall": false, "label": "90th percentile", "isController": false}, {"data": [[1.711123275E12, 340.00000000000205], [1.71112329E12, 18.689999999999998]], "isOverall": false, "label": "99th percentile", "isController": false}, {"data": [[1.711123275E12, 49.0], [1.71112329E12, 15.449999999999989]], "isOverall": false, "label": "95th percentile", "isController": false}, {"data": [[1.711123275E12, 3.0], [1.71112329E12, 2.0]], "isOverall": false, "label": "Min", "isController": false}, {"data": [[1.711123275E12, 11.0], [1.71112329E12, 8.0]], "isOverall": false, "label": "Median", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 15000, "maxX": 1.71112329E12, "title": "Response Time Percentiles Over Time (successful requests only)"}},
         getOptions: function() {
             return {
                 series: {
@@ -948,7 +948,7 @@ function refreshLatenciesVsRequest() {
 };
 
 var hitsPerSecondInfos = {
-        data: {"result": {"minY": 10.0, "minX": 1.71112326E12, "maxY": 10.0, "series": [{"data": [[1.71112326E12, 10.0]], "isOverall": false, "label": "hitsPerSecond", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 60000, "maxX": 1.71112326E12, "title": "Hits Per Second"}},
+        data: {"result": {"minY": 15.266666666666667, "minX": 1.711123275E12, "maxY": 24.733333333333334, "series": [{"data": [[1.711123275E12, 24.733333333333334], [1.71112329E12, 15.266666666666667]], "isOverall": false, "label": "hitsPerSecond", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 15000, "maxX": 1.71112329E12, "title": "Hits Per Second"}},
         getOptions: function() {
             return {
                 series: {
@@ -1025,7 +1025,7 @@ function refreshHitsPerSecond(fixTimestamps) {
 }
 
 var codesPerSecondInfos = {
-        data: {"result": {"minY": 1.6666666666666667, "minX": 1.71112326E12, "maxY": 8.333333333333334, "series": [{"data": [[1.71112326E12, 8.333333333333334]], "isOverall": false, "label": "200", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "201", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 60000, "maxX": 1.71112326E12, "title": "Codes Per Second"}},
+        data: {"result": {"minY": 2.6666666666666665, "minX": 1.711123275E12, "maxY": 20.666666666666668, "series": [{"data": [[1.711123275E12, 20.666666666666668], [1.71112329E12, 12.666666666666666]], "isOverall": false, "label": "200", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "201", "isController": false}], "supportsControllersDiscrimination": false, "granularity": 15000, "maxX": 1.71112329E12, "title": "Codes Per Second"}},
         getOptions: function(){
             return {
                 series: {
@@ -1102,7 +1102,7 @@ function refreshCodesPerSecond(fixTimestamps) {
 };
 
 var transactionsPerSecondInfos = {
-        data: {"result": {"minY": 1.6666666666666667, "minX": 1.71112326E12, "maxY": 1.6666666666666667, "series": [{"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "GET-Blogs-success", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "GET-Authors-success", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "POST-Author-success", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "POST-Comment-success", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "POST-Blog-success", "isController": false}, {"data": [[1.71112326E12, 1.6666666666666667]], "isOverall": false, "label": "GET-Comments-success", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 60000, "maxX": 1.71112326E12, "title": "Transactions Per Second"}},
+        data: {"result": {"minY": 2.0, "minX": 1.711123275E12, "maxY": 4.666666666666667, "series": [{"data": [[1.711123275E12, 4.666666666666667], [1.71112329E12, 2.0]], "isOverall": false, "label": "GET-Blogs-success", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "GET-Authors-success", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "POST-Author-success", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "POST-Comment-success", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "POST-Blog-success", "isController": false}, {"data": [[1.711123275E12, 4.0], [1.71112329E12, 2.6666666666666665]], "isOverall": false, "label": "GET-Comments-success", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 15000, "maxX": 1.71112329E12, "title": "Transactions Per Second"}},
         getOptions: function(){
             return {
                 series: {
@@ -1183,7 +1183,7 @@ function refreshTransactionsPerSecond(fixTimestamps) {
 };
 
 var totalTPSInfos = {
-        data: {"result": {"minY": 10.0, "minX": 1.71112326E12, "maxY": 10.0, "series": [{"data": [[1.71112326E12, 10.0]], "isOverall": false, "label": "Transaction-success", "isController": false}, {"data": [], "isOverall": false, "label": "Transaction-failure", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 60000, "maxX": 1.71112326E12, "title": "Total Transactions Per Second"}},
+        data: {"result": {"minY": 15.333333333333334, "minX": 1.711123275E12, "maxY": 24.666666666666668, "series": [{"data": [[1.711123275E12, 24.666666666666668], [1.71112329E12, 15.333333333333334]], "isOverall": false, "label": "Transaction-success", "isController": false}, {"data": [], "isOverall": false, "label": "Transaction-failure", "isController": false}], "supportsControllersDiscrimination": true, "granularity": 15000, "maxX": 1.71112329E12, "title": "Total Transactions Per Second"}},
         getOptions: function(){
             return {
                 series: {
