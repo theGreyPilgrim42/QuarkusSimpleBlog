@@ -4,12 +4,14 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Schema(name = "Comment", description = "POJO that represents a blog entry.")
 public class Comment extends BaseEntity {
     // Attributes
     @Schema(required = true)
+    @Size(max = 250)
     private String text;
 
     @Schema(readOnly = true)

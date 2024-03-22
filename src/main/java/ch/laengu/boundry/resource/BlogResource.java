@@ -12,7 +12,7 @@ import ch.laengu.control.service.AuthorService;
 import ch.laengu.control.service.BlogService;
 import ch.laengu.entity.Author;
 import ch.laengu.entity.Blog;
-import ch.laengu.entity.TextMessage;
+import ch.laengu.entity.Message;
 import io.quarkus.logging.Log;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -37,7 +37,7 @@ public class BlogResource {
     BlogService blogService;
 
     @Channel("new-blog")
-    Emitter<TextMessage> emitter;
+    Emitter<Message> emitter;
 
     @GET
     public List<Blog> getBlogs() {
@@ -53,11 +53,12 @@ public class BlogResource {
     @Path("{authorId}")
     @POST
     public void addBlog(@PathParam("authorId") Long authorId, BlogDTO blogDto) {
+        Log.debug("Trying to add a new blog");
         Author author = authorService.getAuthor(authorId);
         Blog blog = blogMapper.toValidBlog(blogDto);
         blog.setAuthor(author);
         Blog newBlog = blogService.addBlog(blog);
-        emitter.send(new TextMessage(newBlog.getId(), newBlog.getContent()));
+        emitter.send(new Message(newBlog.getId(), newBlog.getContent()));
     }
 
     @DELETE
@@ -69,13 +70,13 @@ public class BlogResource {
         return Response.status(Status.OK).build();
     }
 
-    @Incoming("validated-text")
+    @Incoming("validated-blog")
     @Transactional
-    public void sink(TextMessage textMessage) {
-        Log.info("Received on topic validated-text: " + textMessage.toString());
-        Long id = textMessage.getId();
+    public void sink(Message message) {
+        Log.debug("Received on topic validated-blog: " + message.toString());
+        Long id = message.getId();
         if (id == null) {
-            Log.warn("Text Message ID is null");
+            Log.warn("Message ID is null");
             return;
         }
         Blog blog = blogService.getBlog(id);
@@ -85,6 +86,6 @@ public class BlogResource {
             return;
         }
 
-        blog.setValid(textMessage.isValid());
+        blog.setValid(message.isValid());
     }
 }
