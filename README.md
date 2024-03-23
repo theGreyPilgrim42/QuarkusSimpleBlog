@@ -1,6 +1,6 @@
 # Scope of work
-- [ ] Implement a load test to check how the system performs with 100+ concurrent users, which are sending HTTP requests to the backend.
-- [ ] Show how the test results need to be interpreted.
+- [x] Implement a load test to check how the system performs with 100+ concurrent users, which are sending HTTP requests to the backend.
+- [x] Show how the test results need to be interpreted.
 - [ ] Show which changes need to be done to the system to improve the results of the load test (optional).
 - [x] Add enpoints for managing (at least create, read and delete, if there's enough time add update) Blogs, Comments and Authors.
 - [x] Refactor the Text-Validator service to be generic.
@@ -8,6 +8,58 @@
     - Making the boundry resources of the REST API reactive is out of scope.
 
 Take a look at JMeter [here](./JMeter.md).
+
+# Load tests and reports
+The load tests are located here:
+- for [100 users](./load-tests/test-plans/Quarkus-API-Load-Test-100-Users.jmx)
+- for [1000 users](./load-tests/test-plans/Quarkus-API-Load-Test-1000-Users.jmx)  
+
+I tested the following endpoints:
+- GET /blog
+- POST /blog/{authorId}
+- GET /author
+- POST /author
+- GET /blog/{id}/comment
+- POST /blog/{id}/comment/{authorId}
+
+The reporst are located here:
+- for [100 users](./load-tests/reports/Report-100-Users-Prod/index.html)
+- for [1000 users](./load-tests/reports/Report-1000-Users-Prod/index.html)  
+and should be opened in a browser after locally checking out the repository.
+
+## Interpretation
+![Dashboard Statistics for 100 Users](./assets/images/statistics-100-users.png)
+*Dashboard Statistics for 100 Users*
+![Dashboard Statistics for 1000 Users](./assets/images/statistics-1000-users.png)
+*Dashboard Statistics for 1000 Users*
+As can be seen in the above images the difference between the `Min` and `Max` Response Times in milliseconds
+is very big, and increases the more users there are. This implies an inconsistent performance the more users there are. 
+
+![Response Time Percentiles Chart for 100 Users](./assets/images/response-time-100-users.png)
+*Response Time Percentiles Chart for 100 Users*
+![Response Time Percentiles Chart for 1000 Users](./assets/images/response-time-1000-users.png)
+*Response Time Percentiles Chart for 1000 Users*
+
+The more GET requests were made, the longer the response times took.
+
+### Proposed solutions
+- Use the `quarkus-hibernate-reactive-panache` dependency to use reactive repositories
+- Use the `quarkus-reactive-mysql-client` dependecy to use a reactive SQL client for MySQL
+- Add paging so only a limited amount of objects can be fetched per request which should reduced the response time.
+
+For further reading on how to 
+- implement a reactive Hibernate with Panache using the repository pattern, check [here](https://quarkus.io/guides/hibernate-reactive-panache#solution-2-using-the-repository-pattern)
+- implement paging, check [here](https://quarkus.io/guides/hibernate-reactive-panache#paging)
+
+
+# Used resources
+- [Apache JMeter documentation](https://jmeter.apache.org/)
+- [Quarkus documentation](https://quarkus.io/guides/)
+- [Moodle Course Distributed Systems 1](https://moodle.hftm.ch/course/view.php?id=2652)
+- [Moodle Course Distributed Systems 2](https://moodle.hftm.ch/course/view.php?id=2058)
+- [ChatGPT](https://chat.openai.com/)
+- [StackOverflow](https://stackoverflow.com/)
+- [How to Analyze JMeter Dashboard Reports](https://jtlreporter.site/blog/how-to-analyze-jmeter-dashboard-report-statistics)
 
 # How to run the services
 To run the production services, execute the following command:

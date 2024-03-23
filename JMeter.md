@@ -23,13 +23,16 @@ To create a POST request it's important to add
 ### CLI Usage
 To run jmeter from the CLI cd into the directory where JMeter is installed first.
 
-Run any jmeter script in non-GUI mode with the following command to generate a report dashboard:
+Run any jmeter script in non-GUI mode with the following command to generate a log sample result:
 ```bash
 jmeter -n -t <script-path>.jmx -l <output-path>
 ```
+Generate a report dashboard from a log sample result:
 ```bash
 jmeter -g <file-path> -o <folder-path>
 ```
+Optionally the granularity can be set by adding the following argument `-Jjmeter.reportgenerator.overall_granularity=<milliseconds>`
+
 | Argument | Description |
 | -------- | ----------- |
 | -n | run in non-GUI mode |
